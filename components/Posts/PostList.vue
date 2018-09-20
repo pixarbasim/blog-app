@@ -1,23 +1,13 @@
 <template>
     <section class="post-list">
       <PostPreview 
-        id="1"
+        v-for="post of posts"
+        :key="post.id"
+        :id="post.id"
         :is-admin="isAdmin"
-        thumbnail="https://www.cmo.com/content/dam/CMO_Other/articles/1046x616_Tech_Meeting.jpg"
-        title="Hello there!"
-        previewText="This is my first post!" />
-      <PostPreview 
-        id="2"
-        :is-admin="isAdmin"
-        thumbnail="https://www.cmo.com/content/dam/CMO_Other/articles/1046x616_Tech_Meeting.jpg"
-        title="Hello there - the second time"
-        previewText="This is my second post!" />
-        <PostPreview 
-        id="3"
-        :is-admin="isAdmin"
-        thumbnail="https://www.cmo.com/content/dam/CMO_Other/articles/1046x616_Tech_Meeting.jpg"
-        title="Hi!"
-        previewText="This is my third post!" />
+        :thumbnail="post.thumbnail"
+        :title="post.title"
+        :previewText="post.previewText" />
     </section>
 </template>
 
@@ -31,6 +21,10 @@
       isAdmin: {
         type: Boolean,
         required: false
+      },
+      posts: {
+        type: Array,
+        required: true
       }
     }
   }

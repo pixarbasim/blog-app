@@ -3,7 +3,7 @@
     <section class="intro">
       <h1>Get the latest tech news!</h1>
     </section>
-    <PostList />
+    <PostList :posts="loadedPosts" />
   </div>
 </template>
 
@@ -12,6 +12,24 @@
   export default {
     components : {
       PostList
+    },
+    data() {
+      return {
+        loadedPosts : [
+          { 
+            id: "1", 
+            title: 'First Post', 
+            previewText: 'This is our first post!', 
+            thumbnail: 'https://www.cmo.com/content/dam/CMO_Other/articles/1046x616_Tech_Meeting.jpg' 
+          },
+          { 
+            id: "2", 
+            title: 'Second Post', 
+            previewText: 'This is our second post!', 
+            thumbnail: 'https://www.cmo.com/content/dam/CMO_Other/articles/1046x616_Tech_Meeting.jpg' 
+          }
+        ]
+      }
     }
   }
 </script>
